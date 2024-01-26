@@ -1,0 +1,51 @@
+.task {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: flex-start;
+  align-self: stretch;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  background: var(--gray-500);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+.wrapperTask {
+  display: flex;
+  gap: 12px;
+}
+.task p {
+  color: var(--gray-100);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+}
+.wrapperTask button {
+  background: none;
+  border: none;
+}
+.check div {
+  background: none;
+  border: 2px solid var(--blue);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.check svg {
+  color: var(--purple);
+}
+.delete {
+  background: none;
+  border: none;
+  color: var(--gray-100);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+  cursor: pointer;
+}
+.delete:hover {
+  color: var(--danger);
+}
