@@ -20,7 +20,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 140%; /* 19.6px */
+  line-height: 140%; 
 }
 .wrapperTask button {
   background: none;
@@ -43,7 +43,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 140%; /* 19.6px */
+  line-height: 140%; 
   cursor: pointer;
 }
 .delete:hover {
