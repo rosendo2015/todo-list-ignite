@@ -9,10 +9,9 @@ export function Tasks() {
   const [newTextTask, setNewTextTask] = useState("")
 
   const taskQtd = tasks.length;
+
   const completedTasks = tasks.filter(task => {
-    return (
-      task.isCompleted === true
-    )
+    return (task.isCompleted === true)
   })
   function handleTaskText(event) {
     setNewTextTask(event.target.value)
@@ -53,26 +52,31 @@ export function Tasks() {
           </div>
           <div className={styles.tasksFinished}>
             <p>Concluídas</p>
-            <span>{completedTasks.length} de {taskQtd}</span>
+            <span>{completedTasks} de {taskQtd}</span>
           </div>
         </header>
         {
-          tasks.map(task => {
-            return (
-              <Task
-                key={crypto.randomUUID()}
-                content={task}
-                isCompleted={task.isCompleted}
-                onDeletarTask={() => deletarTask(task)}
-              />
+          tasks.length
+            ?
+            (
+              tasks.map(task => {
+                return (
+                  <Task
+                    key={crypto.randomUUID()}
+                    content={task}
+                    isCompleted={task.isCompleted}
+                    onDeletarTask={() => deletarTask(task)}
+                  />
+                )
+              })
             )
-          })
+            :
+            <div className={styles.tasksList}>
+              <img src={Cliboard} alt="clipboard" />
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
         }
-        <div className={styles.tasksList}>
-          <img src={Cliboard} alt="clipboard" />
-          <strong>Você ainda não tem tarefas cadastradas</strong>
-          <p>Crie tarefas e organize seus itens a fazer</p>
-        </div>
       </div>
     </div>
   )
