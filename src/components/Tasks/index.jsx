@@ -56,7 +56,7 @@ export function Tasks() {
             <span>{completedTasks.length} de {taskQtd}</span>
           </div>
         </header>
-        {tasks.length ? (
+        {
           tasks.map(task => {
             return (
               <Task
@@ -67,14 +67,12 @@ export function Tasks() {
               />
             )
           })
-        )
-          :
-          <div className={styles.tasksList}>
-            <img src={Cliboard} alt="clipboard" />
-            <strong>Você ainda não tem tarefas cadastradas</strong>
-            <p>Crie tarefas e organize seus itens a fazer</p>
-          </div>
         }
+        <div className={styles.tasksList}>
+          <img src={Cliboard} alt="clipboard" />
+          <strong>Você ainda não tem tarefas cadastradas</strong>
+          <p>Crie tarefas e organize seus itens a fazer</p>
+        </div>
       </div>
     </div>
   )
