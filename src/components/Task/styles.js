@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+export const ContainerTask = styled.div`
 .task {
   margin-bottom: 1rem;
   display: flex;
@@ -5,10 +7,10 @@
   padding: 16px;
   align-items: flex-start;
   align-self: stretch;
-
+  
   border-radius: 8px;
-  border: 1px solid var(--gray-400);
-  background: var(--gray-500);
+  border: 1px solid ${({theme})=>theme.COLORS.gray_400};
+  background: ${({theme})=>theme.COLORS.gray_500};
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
 .wrapperTask {
@@ -16,7 +18,7 @@
   gap: 12px;
 }
 .task p {
-  color: var(--gray-100);
+  color: ${({theme})=>theme.COLORS.gra_100};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -28,18 +30,18 @@
 }
 .check div {
   background: none;
-  border: 2px solid var(--blue);
+  border: 2px solid ${({theme})=>theme.COLORS.blue};
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
 }
 .check svg {
-  color: var(--purple);
+  color: ${({theme})=>theme.COLORS.purple};
 }
 .delete {
   background: none;
   border: none;
-  color: var(--gray-100);
+  color: ${({theme})=>theme.COLORS.gray_100};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -47,5 +49,7 @@
   cursor: pointer;
 }
 .delete:hover {
-  color: var(--danger);
+  
+  color: ${({theme})=>theme.COLORS.danger};
 }
+`

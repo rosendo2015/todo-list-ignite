@@ -1,39 +1,29 @@
-import styles from "./tasks.module.css"
 import Cliboard from "../../assets/Clipboard.svg"
 import LogoTodo from "../../assets/LogoTodo.svg"
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { Task } from "../Task"
 import { useState } from "react"
+import  {ContainerTasks}  from "../Tasks/styles"
+
 export function Tasks() {
   const [tasks, setTasks] = useState([])
   const [newTextTask, setNewTextTask] = useState("")
 
-  const taskQtd = tasks.length;
-
-  const completedTasks = tasks.filter(task => {
-    return (task.isCompleted === true)
-  })
-  function handleTaskText(event) {
-    setNewTextTask(event.target.value)
-  }
-  function handleAddTask(event) {
+  function handleAddNewTask() {
     event.preventDefault()
     setTasks([...tasks, newTextTask])
     setNewTextTask("")
   }
-  function deletarTask(taskToDelete) {
-    const taskWithoutDeletedOne = tasks.filter(task => {
-      return task !== taskToDelete
-    })
-    setTasks(taskWithoutDeletedOne)
+  function handleNewTaskChang() {
+    setNewTextTask(event.target.value)
   }
   return (
-    <div>
-      <header className={styles.header}>
+    <ContainerTasks>
+      <header className="header">
         <img src={LogoTodo} alt="logo" />
-        <form onSubmit={handleAddTask} className={styles.form}>
+        <form onSubmit={handleAddNewTask} className="form">
           <input
-            onChange={handleTaskText}
+            onChange={handleNewTaskChang}
             value={newTextTask}
             type="text"
             placeholder="Adicione uma nova tarefa"
@@ -44,40 +34,38 @@ export function Tasks() {
           </button>
         </form>
       </header>
-      <div className={styles.tasks}>
+      <div className="tasks">
         <header>
-          <div className={styles.tasksCreated}>
+          <div className="tasksCreated">
             <p>Tarefas criadas</p>
-            <span>{taskQtd}</span>
+            <span>10</span>
           </div>
-          <div className={styles.tasksFinished}>
+          <div className="tasksFinished">
             <p>Concluídas</p>
-            <span>{completedTasks} de {taskQtd}</span>
+            <span>5 de 10</span>
           </div>
         </header>
         {
           tasks.length
             ?
-            (
-              tasks.map(task => {
-                return (
-                  <Task
-                    key={crypto.randomUUID()}
-                    content={task}
-                    isCompleted={task.isCompleted}
-                    onDeletarTask={() => deletarTask(task)}
-                  />
-                )
-              })
-            )
+            tasks.map(task => {
+              return (
+                <Task
+                  key={task}
+                  content={task.content}
+                  onDeleteTask={task}
+                 
+                />
+              )
+            })
             :
-            <div className={styles.tasksList}>
+            <div className="tasksList">
               <img src={Cliboard} alt="clipboard" />
               <strong>Você ainda não tem tarefas cadastradas</strong>
               <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
         }
       </div>
-    </div>
+    </ContainerTasks>
   )
 }
