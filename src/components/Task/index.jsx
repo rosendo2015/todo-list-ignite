@@ -3,11 +3,13 @@ import { BsFillCheckCircleFill } from "react-icons/bs"
 import { ContainerTask } from "./styles"
 
 export function Task({ id, task, onDeleteTask, isCompleted }) {
+ 
   return (
     <ContainerTask>
       <div className="task">
         <div className="wrapperTask">
           <button
+            
             className="check"
           >
             {isCompleted ? <BsFillCheckCircleFill size={20} /> : <div />}

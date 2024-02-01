@@ -9,14 +9,14 @@ export function Tasks() {
   const [task, setTask] = useState("")
   const [listTasks, setListTasks] = useState([{
     id: 1,
-    task: 'Fazer bolo',
+    task: 'Fist task.',
     isCompleted: true,
   }])
 
   function handleNewTask() {
     setTask(event.target.value)
   }
-  function addTask() {
+  function handleAddTask() {
     event.preventDefault()
     if (!task) {
       return alert('Tarefa não pode ser vazia.')
@@ -33,13 +33,13 @@ export function Tasks() {
     const newList = listTasks.filter(task => task.id !== id)
     setListTasks(newList)
   }
-
+  
   return (
     <ContainerTasks>
       <header className="header">
         <img src={LogoTodo} alt="logo" />
         <form
-          onSubmit={addTask}
+          onSubmit={handleAddTask}
           className="form"
         >
           <input
