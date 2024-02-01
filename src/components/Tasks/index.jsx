@@ -3,28 +3,48 @@ import LogoTodo from "../../assets/LogoTodo.svg"
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { Task } from "../Task"
 import { useState } from "react"
-import  {ContainerTasks}  from "../Tasks/styles"
+import { ContainerTasks } from "../Tasks/styles"
 
 export function Tasks() {
-  const [tasks, setTasks] = useState([])
-  const [newTextTask, setNewTextTask] = useState("")
+  const [task, setTask] = useState("")
+  const [listTasks, setListTasks] = useState([{
+    id: 1,
+    task: 'Fazer bolo',
+    isCompleted: true,
+  }])
 
-  function handleAddNewTask() {
+  function handleNewTask() {
+    setTask(event.target.value)
+  }
+  function addTask() {
     event.preventDefault()
-    setTasks([...tasks, newTextTask])
-    setNewTextTask("")
+    if (!task) {
+      return alert('Tarefa não pode ser vazia.')
+    }
+    const newTask = {
+      id: Math.random(),
+      task: task,
+      isCompleted: false
+    }
+    setListTasks([...listTasks, newTask])
+    setTask("")
   }
-  function handleNewTaskChang() {
-    setNewTextTask(event.target.value)
+  function removeTask(id) {
+    const newList = listTasks.filter(task => task.id !== id)
+    setListTasks(newList)
   }
+
   return (
     <ContainerTasks>
       <header className="header">
         <img src={LogoTodo} alt="logo" />
-        <form onSubmit={handleAddNewTask} className="form">
+        <form
+          onSubmit={addTask}
+          className="form"
+        >
           <input
-            onChange={handleNewTaskChang}
-            value={newTextTask}
+            onChange={handleNewTask}
+            value={task}
             type="text"
             placeholder="Adicione uma nova tarefa"
           />
@@ -46,15 +66,15 @@ export function Tasks() {
           </div>
         </header>
         {
-          tasks.length
+          listTasks.length
             ?
-            tasks.map(task => {
+            listTasks.map(task => {
               return (
                 <Task
-                  key={task}
-                  content={task.content}
-                  onDeleteTask={task}
-                 
+                  key={task.id}
+                  task={task.task}
+                  isCompleted={task.isCompleted}
+                  onDeleteTask={()=>removeTask(task.id)}
                 />
               )
             })
