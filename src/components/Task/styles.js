@@ -23,6 +23,7 @@ export const ContainerTask = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 140%; 
+ 
 }
 .wrapperTask button {
   background: none;
@@ -30,13 +31,16 @@ export const ContainerTask = styled.div`
 }
 .check div {
   background: none;
-  border: 2px solid ${({theme})=>theme.COLORS.blue};
+  border: 3px solid ${({theme})=>theme.COLORS.blue};
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
 }
 .check svg {
   color: ${({theme})=>theme.COLORS.purple};
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .delete {
   background: none;

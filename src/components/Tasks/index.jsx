@@ -33,7 +33,14 @@ export function Tasks() {
     const newList = listTasks.filter(task => task.id !== id)
     setListTasks(newList)
   }
-  
+  function toggleChecked(id, isCompleted) {
+   
+    const index = listTasks.findIndex((task) => task.id === id)
+    const newList = listTasks
+    newList[index].isCompleted = !isCompleted
+    setListTasks([...newList])
+  }
+
   return (
     <ContainerTasks>
       <header className="header">
@@ -74,7 +81,8 @@ export function Tasks() {
                   key={task.id}
                   task={task.task}
                   isCompleted={task.isCompleted}
-                  onDeleteTask={()=>removeTask(task.id)}
+                  onDeleteTask={() => removeTask(task.id)}
+                  toggleChecked={() => toggleChecked(task.id, task.isCompleted)}
                 />
               )
             })
