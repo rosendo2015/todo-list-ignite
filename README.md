@@ -1,8 +1,21 @@
-# React + Vite
+# Primeiro desafio da trilha de React JS do Ignite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![preview](public/.github/preview.png)
+> Projeto - [https://todo-list-ignite-tau.vercel.app/]
 
-Currently, two official plugins are available:
+> Trail Ignite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Primeiro desafio do courso Ignite da Rocketseat :rocket:. Consiste em construir uma ToDo List em react js utilisando styled components para estilizar e react JS com muitas funcionalidades como criar novas tarefas, marcar as tarefas como concluidas e deletar qualquer tarefa.
+
+## :hammer_and_wrench: Technologies
+
+- JavaScript
+- React JS
+- Styled Components
+- Programação declarativa 
+
+## :mailbox_closed: Contacts
+
+> Email - rosendc30@gmail.com
+
+> Linkedin - https://www.linkedin.com/in/francisco-rosendo-a05623241/
